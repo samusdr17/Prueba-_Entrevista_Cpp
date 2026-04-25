@@ -9,4 +9,7 @@ include_directories(include)
 
 file(GLOB SOURCES "src/*.cpp")
 
-add_executable(proyecto ${SOURCES})
+add_executable(Prueba_Entrevista_Cpp ${SOURCES})
+add_custom_command(TARGET Prueba_Entrevista_Cpp POST_BUILD
+    COMMAND chmod +x Prueba_Entrevista_Cpp
+)
