@@ -1,0 +1,15 @@
+# Build directories
+build/
+proyecto/
+
+# CxxDroid temp files
+*.apk
+*.dex
+
+# Editor backups
+*~
+*.swp
+
+# Test files
+test_cxx
+test_cxx.cpp

@@ -1,1 +1,0 @@
-/data/data/com.termux/files/usr/bin/c++ -O2 -g -DNDEBUG -Xlinker --dependency-file=CMakeFiles/proyecto.dir/link.d CMakeFiles/proyecto.dir/src/Module1.cpp.o CMakeFiles/proyecto.dir/src/Module2.cpp.o CMakeFiles/proyecto.dir/src/ModuleBase.cpp.o CMakeFiles/proyecto.dir/src/main.cpp.o -o proyecto
