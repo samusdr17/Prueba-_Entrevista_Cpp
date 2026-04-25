@@ -1,22 +1,30 @@
-#include <iostream>
-// =============================================================
-// MAIN
-// =============================================================
+#include "Module1.h"
+#include "Module2.h"
+#include "SafeQueue.h"
+#include "Message.h"
+#include <thread>
+#include <chrono>
+
 int main() {
-    Module1 m1;
-    Module2 m2;
-    Module3 m3;
+    SafeQueue<Message> cola;
 
-    m1.setNext(&m2);
-    m2.setNext(&m3);
+    Module1 m1(&cola);
+    Module2 m2(&cola);
 
-    m1.start();
     m2.start();
-    m3.start();
 
-    m1.join();
-    m2.join();
-    m3.join();
+    m1.sendPing();
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+    m1.sendData("Temperatura: 22.5C");
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+    m1.sendData("Humedad: 45%");
+    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+    m1.sendStop();
+
+    m2.stop();
 
     return 0;
 }
